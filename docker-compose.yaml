@@ -1,0 +1,8 @@
+version: '3.0'
+
+services: 
+  RoboBoy:
+    image: ppodgorsek/robot-framework
+    volumes:
+      - ./output:/opt/robotframework/reports:Z
+      - ./tasks:/opt/robotframework/tests:Z
