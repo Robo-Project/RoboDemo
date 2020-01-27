@@ -4,5 +4,12 @@ services:
   RoboBoy:
     image: ppodgorsek/robot-framework
     volumes:
-      - ./output:/opt/robotframework/reports:Z
+      - shared-data:/opt/robotframework/reports:Z
       - ./tasks:/opt/robotframework/tests:Z
+  Saver:
+    privileged: true
+    image: roboteam/saver
+    volumes:
+      - shared-data:/saver/data
+volumes:
+  shared-data:
