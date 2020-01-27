@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build and run') {
       steps {
-        sh "docker-compose up"
         sh "whoami"
+        sh "docker-compose up"
       }
     }
 
