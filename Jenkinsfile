@@ -10,7 +10,9 @@ pipeline {
       }
     }
     stage('save') {
+      steps {
       sh "docker run --rm -v data:/saver/data roboteam/saver"
+      }
     }
     stage('close') {
       steps {
