@@ -3,8 +3,12 @@ pipeline {
   stages {
     stage('build and run') {
       steps {
-        sh "whoami"
         sh "docker-compose up"
+      }
+    }
+    stage('close') {
+      steps {
+        sh "docker-compose down"
       }
     }
 
