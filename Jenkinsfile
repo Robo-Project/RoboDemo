@@ -14,8 +14,8 @@ pipeline {
     }
     stage('close') {
       steps {
-        sh "docker container prune"
-        sh "docker volume prune"
+        sh "docker container prune --force"
+        sh "docker volume prune --force"
       }
     }
 
