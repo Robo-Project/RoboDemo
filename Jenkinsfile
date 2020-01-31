@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh "docker run --rm \
         -v data:/opt/robotframework/reports:Z \
-        -v /var/lib/jenkins/workspace/RoboDemo_master/tasks:/opt/robotframework/tests:Z \
+        -v /var/jenkins_home/workspace/RoboDemo_master/tasks:/opt/robotframework/tests:Z \
         ppodgorsek/robot-framework"
       }
     }
