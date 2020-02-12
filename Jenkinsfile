@@ -23,7 +23,7 @@ pipeline {
 step(
     [
     $class : 'RobotPublisher',
-    outputPath : '/var/jenkins_home/workspace/Robotest1_master/data',
+    outputPath : '/var/jenkins_home/workspace/RoboDemo_master/data',
     outputFileName : "*.xml",
     disableArchiveOutput : false,
     passThreshold : 100,
@@ -35,7 +35,7 @@ step(
     }
 	stage('dbbot') {
       steps {
-		sh "python -m dbbot.run -b postgresql://postgres:postgres@172.17.0.1:5432/postgres /var/jenkins_home/workspace/Robotest1_master/data/output.xml"
+		sh "python -m dbbot.run -b postgresql://postgres:postgres@172.17.0.1:5432/postgres /var/jenkins_home/workspace/RoboDemo_master/data/output.xml"
       }
     }
     stage('close') {
