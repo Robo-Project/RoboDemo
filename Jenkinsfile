@@ -13,7 +13,7 @@ pipeline {
 		docker run --rm \
           	-v /var/jenkins_home/workspace/RoboDemo_master/data:/opt/robotframework/reports:Z \
           	-v /var/jenkins_home/workspace/Robodemo_master/tasks:/opt/robotframework/tests:Z \
-          	-e ROBOT_OPTIONS="--variable SEARCH:Suomi" \
+          	-e ROBOT_OPTIONS='--variable SEARCH:Suomi' \
           	ppodgorsek/robot-framework
 	  """
       }
