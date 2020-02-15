@@ -12,11 +12,11 @@ pipeline {
     }
     stage('build and run') {
       steps {
-       docker run --rm \
+       sh "docker run --rm \
         -v `pwd`/data:/opt/robotframework/reports:Z \
         -v `pwd`/tasks:/opt/robotframework/tests:Z \
-        -e ROBOT_OPTIONS="--variable SEARCH:${SEARCH}" \
-        ppodgorsek/robot-framework
+        -e ROBOT_OPTIONS='--variable SEARCH:${SEARCH}' \
+        ppodgorsek/robot-framework"
       }
     }
    stage('dbbot') {
