@@ -12,10 +12,11 @@ pipeline {
     }
     stage('build and run') {
       steps {
+       sh "export SEARCH=${SEARCH// /_}"
        sh "docker run --rm \
         -v `pwd`/data:/opt/robotframework/reports:Z \
         -v `pwd`/tasks:/opt/robotframework/tests:Z \
-        -e ROBOT_OPTIONS='--variable SEARCH:${SEARCH// /_}' \
+        -e ROBOT_OPTIONS='--variable SEARCH:${SEARCH}' \
         ppodgorsek/robot-framework"
       }
     }
