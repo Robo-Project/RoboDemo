@@ -1,4 +1,7 @@
 pipeline {
+  parameters {
+      string(name: 'SEARCH', defaultValue: 'Robotic Process Automation', description: 'Searchword for wikipedia')
+    }
   agent any
   stages {
     stage('setup') {
@@ -12,7 +15,7 @@ pipeline {
         sh "docker run --rm \
         -v /var/jenkins_home/workspace/RoboDemo_master/data:/opt/robotframework/reports:Z \
         -v /var/jenkins_home/workspace/RoboDemo_master/tasks:/opt/robotframework/tests:Z \
-        -e ROBOT_OPTIONS="--variable SEARCH:${SEARCH}"
+        -e ROBOT_OPTIONS="--variable SEARCH:${params.SEARCH}"
         ppodgorsek/robot-framework"
       }
     }
