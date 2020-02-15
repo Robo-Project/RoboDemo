@@ -15,7 +15,7 @@ pipeline {
         sh "docker run --rm \
         -v /var/jenkins_home/workspace/RoboDemo_master/data:/opt/robotframework/reports:Z \
         -v /var/jenkins_home/workspace/RoboDemo_master/tasks:/opt/robotframework/tests:Z \
-        -e ROBOT_OPTIONS=\"--variable SEARCH:${params.SEARCH}\" \
+        -e ROBOT_OPTIONS=\"--variable SEARCH:\"${params.SEARCH}\"\" \
         ppodgorsek/robot-framework"
       }
     }
