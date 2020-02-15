@@ -12,6 +12,7 @@ pipeline {
     }
     stage('build and run') {
       steps {
+        sh "export SEARCH=${params.SEARCH}"
         sh 'docker run --rm \
         -v $(pwd)/data:/opt/robotframework/reports:Z \
         -v $(pwd)/tasks:/opt/robotframework/tests:Z \
