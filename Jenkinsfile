@@ -13,8 +13,8 @@ pipeline {
     stage('build and run') {
       steps {
         sh "docker run --rm \
-        -v ${PWD}/data:/opt/robotframework/reports:Z \
-        -v ${PWD}/tasks:/opt/robotframework/tests:Z \
+        -v $(pwd)/data:/opt/robotframework/reports:Z \
+        -v $(pwd)/tasks:/opt/robotframework/tests:Z \
         -e ROBOT_OPTIONS=\"--variable SEARCH:${params.SEARCH}\" \
         ppodgorsek/robot-framework"
       }
